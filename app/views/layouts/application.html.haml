@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title
+      Austin On Rails | Austin's Official Ruby on Rails User Group
+    %meta{:name => "description", :content => "The Austin on Rails User Group"}
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+  %body
+    .container
+      .navbar-header
+        = link_to("Austin on Rails", "http://www.austinonrails.org", :class => "navbar-brand")
+      .navbar.navbar-default{:role => 'navigation'}
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to("Member Directory", list_members_url)
+            %li
+              = link_to("Topics List", topics_url)
+    .container
+      .row
+        .col-md-offset-2.col-md-8
+          = yield
+        .col-md-2
+          .well
+            - if current_member
+              %ul
+                %li
+                  = link_to 'Edit your profile', edit_member_path(current_member.id)
+                %li
+                  = link_to "Logout", logout_path
+            - else
+              %ul 
+                %li
+                  = link_to 'Create a new profile', :controller => 'members', :action => 'new'
+                %li
+                  = link_to 'Login', login_path
+      .row
+        #footer
+          %p
+            Copyright 2014 

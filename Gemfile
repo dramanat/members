@@ -7,6 +7,8 @@ gem 'mysql2'
 gem 'authlogic'
 gem 'will_paginate', '~> 3.0'
 gem 'haml-rails'
+gem 'bootstrap-sass', '~> 3.0.3.0'
+gem 'jquery-rails'
 
 #was in original project 
 # gem 'file_column'
@@ -22,7 +24,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
 
 group :development, :test do
